@@ -23,7 +23,6 @@ a:hover {
 }
 
 body {
-  background: linear-gradient(135deg, #000000, #210931, #000000);
   margin: 0;
   display: flex;
   place-items: center;
