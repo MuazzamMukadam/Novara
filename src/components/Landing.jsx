@@ -4,7 +4,7 @@ function Landing(){
     return (
         <>
         <div className="lc">
-            
+            hello
         </div>
         </>
     );
