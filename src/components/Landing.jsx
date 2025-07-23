@@ -5,7 +5,7 @@ function Landing() {
   const [songs, setSongs] = useState([]);
 
 useEffect(() => {
-  fetch('http://localhost:4000/api/tracks')
+fetch('https://novara-4e6p.onrender.com/api/tracks')
     .then((res) => res.json())
     .then((data) => {
       console.log("Full response:", data);
