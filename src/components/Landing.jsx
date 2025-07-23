@@ -4,6 +4,8 @@ function Landing() {
 
   return (
  <>
+ <div className="top-center-blend"></div>
+
  <Header/>
  </>
   );
