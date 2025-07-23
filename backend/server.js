@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
-import btoa from "btoa";
+
 
 dotenv.config();
 
@@ -23,7 +23,9 @@ const getAccessToken = async () => {
   const res = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
-      Authorization: "Basic " + btoa(`${CLIENT_ID}:${CLIENT_SECRET}`),
+      Authorization:
+        "Basic " +
+        Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64"),
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body: "grant_type=client_credentials",
@@ -43,7 +45,7 @@ app.get("/api/tracks", async (req, res) => {
     "3n3Ppam7vgaVa1iaRUc9Lp",
     "7qiZfU4dY1lWllzX7mPBI3",
     "1rgnBhdG2JDFTbYkYRZAku",
-    "7bPWdJgx8vek7S5i5yAtvG"
+    "7bPWdJgx8vek7S5i5yAtvG",
   ];
 
   const spotifyRes = await fetch(
@@ -61,12 +63,11 @@ app.get("/api/tracks", async (req, res) => {
     artist: track.artists[0]?.name,
     image: track.album.images[0]?.url,
     preview: track.preview_url,
-    external: track.external_urls.spotify, 
+    external: track.external_urls.spotify,
   }));
 
   res.json(tracks);
 });
-
 
 const PORT = 4000;
 app.listen(PORT, () =>
