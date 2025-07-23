@@ -4,7 +4,7 @@ function Introscreen() {
     return (
         <>
         <div className="ic">
-            <img src='ng.png' alt="Novara Logo" />
+            <img src='hogayabg.png' alt="Novara Logo" />
             <h3>NOVARA</h3>
             <p className="tagline">Music So Heavy, It Bends Time.</p>
         </div>
