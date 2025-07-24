@@ -44,6 +44,7 @@
 }
 
 .info-icon {
+  outline: none;
   width: 24px;
   height: 24px;
   fill: white;
@@ -54,6 +55,10 @@
 .info-icon:hover {
   opacity: 0.8;
   transform: scale(1.1);
+}
+.info-icon:focus {
+outline: none;
+box-shadow: none;
 }
 
 .about-popup {
