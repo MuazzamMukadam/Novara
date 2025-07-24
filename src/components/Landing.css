@@ -5,11 +5,24 @@
   transform: translateX(-50%);
   width: 1200px;
   height: 200px;
-  background: radial-gradient(ellipse at center, rgba(0, 255, 255, 0.3), transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 255, 255, 0.3),
+    transparent 70%
+  );
   pointer-events: none;
   z-index: 1;
 }
 
-.mood-container{
+.mood-container {
   margin-top: 80px;
+  margin-left: -70px;
+}
+.mtfu {
+  margin-top: 100px;
+  margin-left: -90px;
+}
+.suv {
+  margin-top: -20px;
+  margin-left: -30px;
 }
