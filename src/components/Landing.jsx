@@ -1,14 +1,13 @@
 import './Landing.css';
 import Header from './Header';
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 
-
-import Happy from '../moods/Happy';
-import Sad from '../moods/Sad';
-import Energetic from '../moods/Energetic';
-import Chill from '../moods/Chill';
-import Romantic from '../moods/Romantic';
-import Moody from '../moods/Moody';
+const LazyHappy = lazy(() => import('../moods/Happy'));
+const LazySad = lazy(() => import('../moods/Sad'));
+const LazyEnergetic = lazy(() => import('../moods/Energetic'));
+const LazyChill = lazy(() => import('../moods/Chill'));
+const LazyRomantic = lazy(() => import('../moods/Romantic'));
+const LazyMoody = lazy(() => import('../moods/Moody'));
 
 function Landing() {
   const [selectedMood, setSelectedMood] = useState('');
@@ -16,17 +15,17 @@ function Landing() {
   const renderMoodComponent = () => {
     switch (selectedMood) {
       case 'happy':
-        return <Happy />;
+        return <LazyHappy />;
       case 'sad':
-        return <Sad />;
+        return <LazySad />;
       case 'energetic':
-        return <Energetic />;
+        return <LazyEnergetic />;
       case 'chill':
-        return <Chill />;
+        return <LazyChill />;
       case 'romantic':
-        return <Romantic />;
+        return <LazyRomantic />;
       case 'moody':
-        return <Moody />;
+        return <LazyMoody />;
       default:
         return null;
     }
@@ -44,7 +43,7 @@ function Landing() {
           className="mood-dropdown"
           onChange={(e) => setSelectedMood(e.target.value)}
         >
-          <option value="">-- Choose --</option>
+          <option value=""> Choose Mood </option>
           <option value="happy">Happy</option>
           <option value="sad">Sad</option>
           <option value="energetic">Energetic</option>
@@ -54,7 +53,11 @@ function Landing() {
         </select>
       </div>
 
-      <div className="mood-display">{renderMoodComponent()}</div>
+      <div className="mood-display">
+        <Suspense fallback={<p>Loading mood...</p>}>
+          {renderMoodComponent()}
+        </Suspense>
+      </div>
     </>
   );
 }

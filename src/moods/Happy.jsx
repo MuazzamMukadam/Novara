@@ -1,5 +1,18 @@
+import './Happy.css';
+
 function Happy() {
-  return <div className="mood-card">You’re feeling Happy! 🎉</div>;
+  return(
+    <>
+      <iframe src="https://open.spotify.com/embed/track/7qiZfU4dY1lWllzX7mPBI3?utm_source=generator"
+    width="100%"
+    height="152"
+    frameborder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    >
+  </iframe>
+
+    </>
+  )
 }
 
 export default Happy;
