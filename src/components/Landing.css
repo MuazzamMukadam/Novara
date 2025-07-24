@@ -7,7 +7,7 @@
   height: 200px;
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3),
     transparent 70%
   );
   pointer-events: none;
@@ -20,11 +20,11 @@
 }
 .mtfu {
   margin-top: 100px;
-  margin-left: -90px;
+  margin-left: -110px;
 }
 .suv {
   margin-top: -20px;
-  margin-left: -40px;
+  margin-left: -55px;
 }
 .mood-dropdown {
   background: linear-gradient(135deg, #ff3c8e, #7b2ff7);
@@ -42,4 +42,8 @@
 }
 .mood-dropdown:hover {
   transform: scale(1.03);
+}
+body{
+  background: linear-gradient(270deg, #1b1f23, #2c2f36, #3e4452);
+
 }

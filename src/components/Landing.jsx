@@ -1,5 +1,6 @@
 import './Landing.css';
 import Header from './Header';
+import Carousel from './Carousel';
 import { useState, lazy, Suspense } from 'react';
 
 const LazyHappy = lazy(() => import('../moods/Happy'));
@@ -37,6 +38,7 @@ function Landing() {
       <Header />
 <h2 className='mtfu'>Music that feels you.</h2><br></br>
 <h4 className='suv'>Select your vibe. We'll set the mood.</h4>
+<Carousel/>
       <div className="mood-container">
         <label htmlFor="mood-select" className="mood-label">Select your mood:</label>
         <select

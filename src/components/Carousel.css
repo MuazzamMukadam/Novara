@@ -1,0 +1,30 @@
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  white-space: normal; /* Allow line breaks inside */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 0px;
+}
+
+.carousel-item p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.carousel-item span {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #aaa;
+  align-self: flex-end;
+}
