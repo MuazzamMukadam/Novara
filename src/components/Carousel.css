@@ -12,7 +12,9 @@
   white-space: normal; 
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   margin-left: 20px;
     animation: float 3s ease-in-out infinite;
 
