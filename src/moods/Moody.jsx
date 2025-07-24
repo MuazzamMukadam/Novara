@@ -1,5 +1,27 @@
+
+import './Moody.css';
+
+const trackIds = [
+
+
+
+];
+
 function Moody() {
-  return <div className="mood-card">You’re feeling Happy! 🎉</div>;
+  return (
+    <>
+      {trackIds.map((id, index) => (
+        <iframe
+          key={index}
+          src={`https://open.spotify.com/embed/track/${id}`}
+          width="100%"
+          height="152"
+          frameBorder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        ></iframe>
+      ))}
+    </>
+  );
 }
 
 export default Moody;

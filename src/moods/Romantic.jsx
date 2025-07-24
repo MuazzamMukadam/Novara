@@ -1,22 +1,25 @@
-import "./Romantic.css";
+import './Romantic.css';
+
+const trackIds = [
+  "2262bWmqomIaJXwCRHr13j", //sailor
+  "7ne4VBA60CxGM75vw0EYad", // that's so true
+
+
+];
 
 function Romantic() {
   return (
     <>
-      <iframe
-        src="https://open.spotify.com/embed/track/2262bWmqomIaJXwCRHr13j"
-        width="100%"
-        height="152"
-        frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      ></iframe>
-      <iframe
-        src="https://open.spotify.com/embed/track/7ne4VBA60CxGM75vw0EYad"
-        width="100%"
-        height="152"
-        frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      ></iframe>
+      {trackIds.map((id, index) => (
+        <iframe
+          key={index}
+          src={`https://open.spotify.com/embed/track/${id}`}
+          width="100%"
+          height="152"
+          frameBorder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        ></iframe>
+      ))}
     </>
   );
 }

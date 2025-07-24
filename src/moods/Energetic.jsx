@@ -1,16 +1,24 @@
+import './Energetic.css';
+
+const trackIds = [
+  "0FIDCNYYjNvPVimz5icugS"
+];
+
 function Energetic() {
-    return(
-   <>
-<div className="romantic-container">
-      <iframe src="https://open.spotify.com/embed/track/0FIDCNYYjNvPVimz5icugS?utm_source=generator"
-    width="100%"
-    height="152"
-    frameborder="0"
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    >
-  </iframe>
-</div>
-    </>)
+  return (
+    <>
+      {trackIds.map((id, index) => (
+        <iframe
+          key={index}
+          src={`https://open.spotify.com/embed/track/${id}`}
+          width="100%"
+          height="152"
+          frameBorder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        ></iframe>
+      ))}
+    </>
+  );
 }
 
 export default Energetic;

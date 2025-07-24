@@ -9,12 +9,15 @@ const LazyEnergetic = lazy(() => import('../moods/Energetic'));
 const LazyChill = lazy(() => import('../moods/Chill'));
 const LazyRomantic = lazy(() => import('../moods/Romantic'));
 const LazyMoody = lazy(() => import('../moods/Moody'));
+const LazyGif = lazy(() => import('../moods/Gif'));
 
 function Landing() {
   const [selectedMood, setSelectedMood] = useState('');
 
   const renderMoodComponent = () => {
     switch (selectedMood) {
+      case 'choose':
+        return <LazyGif/>
       case 'happy':
         return <LazyHappy />;
       case 'sad':
@@ -46,7 +49,7 @@ function Landing() {
           className="mood-dropdown"
           onChange={(e) => setSelectedMood(e.target.value)}
         >
-          <option value=""> Choose Mood </option>
+          <option value="choose"> Choose Mood </option>
           <option value="happy">Happy</option>
           <option value="sad">Sad</option>
           <option value="energetic">Energetic</option>
