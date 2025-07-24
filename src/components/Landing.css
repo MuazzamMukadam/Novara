@@ -24,11 +24,11 @@
 }
 .suv {
   margin-top: -20px;
-  margin-left: -30px;
+  margin-left: -40px;
 }
 .mood-dropdown {
   background: linear-gradient(135deg, #ff3c8e, #7b2ff7);
-margin-left: 10px;
+  margin-left: 10px;
   color: white;
   padding: 0.5rem 1rem;
   border: 2px solid #444;
