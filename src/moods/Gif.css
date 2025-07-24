@@ -4,8 +4,6 @@
   height: auto;             /* Maintains aspect ratio */
   display: block;
   margin: 20px auto;      
-  border-radius: 12px;    
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  /* Adds a subtle glow */
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 999;
 }

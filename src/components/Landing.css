@@ -1,4 +1,4 @@
-.top-center-blend {
+/* .top-center-blend {
   position: fixed;
   top: 5px;
   left: 50%;
@@ -12,7 +12,7 @@
   );
   pointer-events: none;
   z-index: 1;
-}
+} */
 
 .mood-container {
   margin-top: 80px;
@@ -47,3 +47,4 @@ body{
   background: linear-gradient(to bottom, #0077be 0%, #000000 70%);
 
 }
+
