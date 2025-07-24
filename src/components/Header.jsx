@@ -45,7 +45,7 @@ function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="gradient-name">Muazzam</span>.
+                <span className="gradient-name">Muazzam .</span>
               </a>
               <br></br>Novara is a mood-based music discovery platform that lets
               users select how they feel and instantly get curated songs to
