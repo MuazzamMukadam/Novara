@@ -28,27 +28,27 @@
 }
 .mood-dropdown {
   background: linear-gradient(135deg, #007ea7, #00cfff);
-
-  margin-left:5px;
+  margin-left: 5px;
   color: white;
-  padding: 0.5rem 1rem;
-  border: 2px solid #444;
-  border-radius: 8px;
+  padding: 0.5rem 1.5rem; /* a bit more horizontal padding for nice pill shape */
+  border: 2px solid white;
+  border-radius: 9999px; /* big radius = pill shape */
   font-size: 1rem;
-  appearance: none; /* removes default arrow */
-  -webkit-appearance: none; /* for Safari */
-  -moz-appearance: none; /* for Firefox */
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
   cursor: pointer;
   position: relative;
+  transition: transform 0.2s ease;
 }
 .mood-dropdown:hover {
   transform: scale(1.03);
 }
 .mood-dropdown:focus {
-outline: none;
-box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
-body{
+body {
   background: linear-gradient(to bottom, #0077be 0%, #000000 70%);
 }
 .mood-label {
@@ -58,8 +58,5 @@ body{
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #00cfff; /* bright ocean blue */
-  text-shadow:
-    0 0 2px #00cfff99,
-    0 0 2px #00a8ccbb,
-    0 0 2px #007ea7cc;
+  text-shadow: 0 0 2px #00cfff99, 0 0 2px #00a8ccbb, 0 0 2px #007ea7cc;
 }
