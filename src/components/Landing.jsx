@@ -41,7 +41,6 @@ function Landing() {
   return (
     <> 
       <div className="top-center-blend"></div>
-     
       <Header />
 
       <h2 className="mtfu">Music that feels you.</h2>
