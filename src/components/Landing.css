@@ -9,3 +9,7 @@
   pointer-events: none;
   z-index: 1;
 }
+
+.mood-container{
+  margin-top: 80px;
+}
