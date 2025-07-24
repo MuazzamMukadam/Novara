@@ -9,7 +9,7 @@ const LazySad = lazy(() => import("../moods/Sad"));
 const LazyEnergetic = lazy(() => import("../moods/Energetic"));
 const LazyChill = lazy(() => import("../moods/Chill"));
 const LazyRomantic = lazy(() => import("../moods/Romantic"));
-const LazyMoody = lazy(() => import("../moods/Moody"));
+const LazyFocus = lazy(() => import("../moods/Focus"));
 const LazyGif = lazy(() => import("../moods/Gif"));
 
 function Landing() {
@@ -29,8 +29,8 @@ function Landing() {
         return <LazyChill />;
       case "romantic":
         return <LazyRomantic />;
-      case "moody":
-        return <LazyMoody />;
+      case "focus":
+        return <LazyFocus />;
       default:
         return null;
     }
@@ -49,7 +49,7 @@ function Landing() {
       <Carousel />
       <div className="mood-container">
         <label htmlFor="mood-select" className="mood-label">
-          Select your mood:
+       Tell us how you feel :
         </label>
         <select
           id="mood-select"
@@ -57,12 +57,12 @@ function Landing() {
           onChange={(e) => setSelectedMood(e.target.value)}
         >
           <option value="choose"> Choose Mood </option>
-          <option value="happy">Happy</option>
-          <option value="sad">Sad</option>
-          <option value="energetic">Energetic</option>
-          <option value="chill">Chill</option>
-          <option value="romantic">Romantic</option>
-          <option value="moody">Moody</option>
+          <option value="happy">😊 Happy</option>
+          <option value="sad">😢 Sad</option>
+          <option value="energetic">🕺🏻 Energetic</option>
+          <option value="chill">😌 Chill</option>
+          <option value="romantic">🥰 Romantic</option>
+          <option value="focus">🧠 Focus</option>
         </select>
       </div>
 

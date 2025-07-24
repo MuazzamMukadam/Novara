@@ -1,13 +1,12 @@
 
-import './Moody.css';
+import './Focus.css';
 
 const trackIds = [
-
-
-
+"6pWgRkpqVfxnj3WuIcJ7WP",
+"6ZFbXIJkuI1dVNWvzJzown"
 ];
 
-function Moody() {
+function Focus() {
   return (
     <>
       {trackIds.map((id, index) => (
@@ -24,4 +23,4 @@ function Moody() {
   );
 }
 
-export default Moody;
+export default Focus;
