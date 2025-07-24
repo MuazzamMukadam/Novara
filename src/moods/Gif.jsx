@@ -1,9 +1,22 @@
+import { useState } from "react";
 import "./Gif.css";
 
 function Gif() {
+  const [showIcon, setShowIcon] = useState(false);
+
+  const handleClick = () => {
+    setShowIcon(true);
+    setTimeout(() => {
+      setShowIcon(false);
+    }, 1000); // Remove after animation
+  };
+
   return (
-    <div>
-      <img src="/musicgif.gif" className="mg" alt="music gif" />
+    <div className="gif-container" onClick={handleClick}>
+      <img src="/mpg.gif" className="mg" alt="music gif" />
+      {showIcon && (
+        <div className="music-icon">🎹🎧</div>
+      )}
     </div>
   );
 }

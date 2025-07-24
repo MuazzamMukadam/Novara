@@ -1,6 +1,6 @@
 .mg {
   width: 100%;
-  max-width: 400px;         
+  max-width: 200px;         
   height: auto;             /* Maintains aspect ratio */
   display: block;
   margin: 20px auto;      
@@ -11,4 +11,42 @@
 .mg:hover {
   transform: scale(1.1);   
   opacity: 0.9;             
+}
+.gif-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.gif-container:focus{
+  outline: none;
+  box-shadow: none;
+}
+.mg {
+  width: 200px;
+  height: auto;
+}
+.mg:focus{
+  outline: none;
+  box-shadow: none;
+}
+/* Music note animation */
+.music-icon {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: flyUp 1s ease-out forwards;
+  font-size: 24px;
+  pointer-events: none;
+}
+
+@keyframes flyUp {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateX(-50%) translateY(-200px);
+  }
 }
