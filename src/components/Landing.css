@@ -44,6 +44,10 @@
 .mood-dropdown:hover {
   transform: scale(1.03);
 }
+.mood-dropdown:focus {
+outline: none;
+box-shadow: none;
+}
 body{
   background: linear-gradient(to bottom, #0077be 0%, #000000 70%);
 }
