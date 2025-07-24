@@ -11,6 +11,7 @@ const trackIds = [
 function Happy() {
   return (
     <>
+    <div className="happy-bg">
       {trackIds.map((id, index) => (
         <iframe
           key={index}
@@ -20,7 +21,7 @@ function Happy() {
           frameBorder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         ></iframe>
-      ))}
+      ))}</div>
     </>
   );
 }

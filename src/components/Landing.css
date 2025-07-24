@@ -1,4 +1,4 @@
-/* .top-center-blend {
+.top-center-blend {
   position: fixed;
   top: 5px;
   left: 50%;
@@ -12,7 +12,7 @@
   );
   pointer-events: none;
   z-index: 1;
-} */
+}
 
 .mood-container {
   margin-top: 80px;
@@ -27,8 +27,9 @@
   margin-left: -55px;
 }
 .mood-dropdown {
-  background: linear-gradient(135deg, #ff3c8e, #7b2ff7);
-  margin-left: 10px;
+  background: linear-gradient(135deg, #007ea7, #00cfff);
+
+  margin-left:5px;
   color: white;
   padding: 0.5rem 1rem;
   border: 2px solid #444;
@@ -45,6 +46,16 @@
 }
 body{
   background: linear-gradient(to bottom, #0077be 0%, #000000 70%);
-
 }
-
+.mood-label {
+  margin-left: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #00cfff; /* bright ocean blue */
+  text-shadow:
+    0 0 2px #00cfff99,
+    0 0 2px #00a8ccbb,
+    0 0 2px #007ea7cc;
+}

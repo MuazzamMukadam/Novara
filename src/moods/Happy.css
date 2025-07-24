@@ -3,3 +3,23 @@
       max-width: 500px;
       width: 90%;
     }
+/* Happy.css */
+.happy-bg {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #fceabb, #f8b500, #ff6f61, #ff9a8b);
+
+  background-size: 400% 400%;
+  animation: happyGradientMove 5s ease infinite;
+  padding: 20px;
+}
+@keyframes happyGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
