@@ -66,15 +66,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
-iframe {
-  border-radius: 12px;
-  max-width: 500px;
-  width: 90%;
-  margin-top: 20px;
-}
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
+
+}
+
+
+iframe {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  margin-top: 20px;
+
+}
+
+iframe:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
