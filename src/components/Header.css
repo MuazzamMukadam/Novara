@@ -103,3 +103,11 @@
 .about-content  {
   text-align: left;
 }
+.gradient-name {
+  background: linear-gradient(45deg, #ff0000, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  border-bottom: 2px solid #d52d2d; /* red underline */
+  padding-bottom: 2px;
+}
