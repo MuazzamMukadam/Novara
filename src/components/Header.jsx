@@ -8,7 +8,7 @@ function Header() {
     <>
       <header className="glass-header">
         <div className="logo-container">
-          <img src="hogayabg.png" alt="Logo" className="logo" />
+          <img src="nl.webp" alt="Logo" className="logo" />
           <h1 className="app-name">NOVARA</h1>
         </div>
 
@@ -24,8 +24,12 @@ function Header() {
         <div className="about-popup">
           <div className="about-content">
             <button className="close-btn" onClick={() => setShowAbout(false)}>×</button>
-            <h2>About NOVARA</h2>
-            <p>This is your about section. Drop your poetic AI-fueled Spotify-killer pitch here.</p>
+            <h2>About <span className='anv'>NOVARA</span></h2>
+            <p>Hey ! It's Muazzam . <br></br>Novara is a mood-based music discovery 
+            platform that lets users select how they feel
+             and instantly get curated songs to match. With a sleek, minimalist 
+             UI, Novara makes music selection fast, aesthetic, and vibe-driven. No sign-up walls, no fluff , just pure mood-matching tunes 
+             in one click. Songs redirect seamlessly to Spotify, so you can dive straight into the vibe. </p>
           </div>
         </div>
       )}
