@@ -8,12 +8,13 @@
   background-color: #1e1e1e;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  white-space: normal; /* Allow line breaks inside */
+  box-shadow: 0 0 10px rgba(0, 162, 255, 0.3);
+  white-space: normal; 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin-left: 0px;
+  margin-left: 20px;
+    animation: float 3s ease-in-out infinite;
+
 }
 
 .carousel-item p {
@@ -27,4 +28,15 @@
   font-style: italic;
   color: #aaa;
   align-self: flex-end;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }

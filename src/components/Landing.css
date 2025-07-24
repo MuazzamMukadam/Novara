@@ -44,6 +44,6 @@
   transform: scale(1.03);
 }
 body{
-  background: linear-gradient(270deg, #1b1f23, #2c2f36, #3e4452);
+  background: linear-gradient(to bottom, #0077be 0%, #000000 70%);
 
 }
