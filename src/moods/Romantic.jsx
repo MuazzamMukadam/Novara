@@ -10,7 +10,8 @@ const trackIds = [
 
 function Romantic() {
   return (
-    <>
+    <>    <div className="romantic-bg">
+
       {trackIds.map((id, index) => (
         <iframe
           key={index}
@@ -20,7 +21,7 @@ function Romantic() {
           frameBorder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         ></iframe>
-      ))}
+      ))}</div>
     </>
   );
 }
