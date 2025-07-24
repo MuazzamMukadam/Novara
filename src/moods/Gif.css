@@ -1,31 +1,37 @@
 .mg {
   width: 100%;
-  max-width: 200px;         
-  height: auto;             /* Maintains aspect ratio */
+  max-width: 200px;
+  height: auto; /* Maintains aspect ratio */
   display: block;
-  margin: 20px auto;      
+  margin: 20px auto;
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 999;
 }
 
 .mg:hover {
-  transform: scale(1.1);   
-  opacity: 0.9;             
+  transform: scale(1.1);
+  opacity: 0.9;
 }
 .gif-container {
   position: relative;
   display: inline-block;
   cursor: pointer;
+  user-select: none; /* Prevents text/icon selection */
+  -webkit-tap-highlight-color: transparent; /* Removes blue highlight on mobile */
+  outline: none;
 }
-.gif-container:focus{
+.gif-container:focus {
   outline: none;
   box-shadow: none;
 }
 .mg {
   width: 200px;
   height: auto;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
-.mg:focus{
+.mg:focus {
   outline: none;
   box-shadow: none;
 }
@@ -49,4 +55,8 @@
     opacity: 0.5;
     transform: translateX(-50%) translateY(-200px);
   }
+}
+.music-icon:focus {
+  outline: none;
+  box-shadow: none;
 }
