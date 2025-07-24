@@ -12,12 +12,12 @@ const LazyMoody = lazy(() => import('../moods/Moody'));
 const LazyGif = lazy(() => import('../moods/Gif'));
 
 function Landing() {
-  const [selectedMood, setSelectedMood] = useState('');
+  const [selectedMood, setSelectedMood] = useState('choose');
 
   const renderMoodComponent = () => {
     switch (selectedMood) {
       case 'choose':
-        return <LazyGif/>
+        return <LazyGif />;
       case 'happy':
         return <LazyHappy />;
       case 'sad':
