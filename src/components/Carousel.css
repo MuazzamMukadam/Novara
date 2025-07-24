@@ -2,23 +2,30 @@
 .carousel-item {
   flex: 0 0 auto;
   width: 300px;
-  height: auto;
   padding: 1.5rem;
-  border-radius: 10px;
-  background-color: #1e1e1e;
-  color: #fff;
+  border-radius: 12px;
+
+  background: rgba(30, 30, 30, 0.4); /* semi-transparent dark */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* for Safari */
+
+  color: #ffffff;
   font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 0 10px rgba(0, 162, 255, 0.3);
+
+  box-shadow: 0 0 12px rgba(37, 101, 138, 0.35);
+
   white-space: normal; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-left: 20px;
-    animation: float 3s ease-in-out infinite;
 
+  margin-left: 20px;
+  animation: float 3s ease-in-out infinite;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* optional soft border */
 }
+
 
 .carousel-item p {
   font-size: 1rem;
