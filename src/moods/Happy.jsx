@@ -16,7 +16,7 @@ const tracks = [
   },
   {
     id: "4uLU6hMCjMI75M1A2tKUQC",
-    name: "Never Gonna Give You Up",
+    name: "Never Gonna Give You Up rick astley",
   },
 ];
 
@@ -25,8 +25,8 @@ function Happy() {
     <div className="happy-bg">
       <h2 className="song-count">Total Happy Songs: {tracks.length}</h2>
 
-      {tracks.map((track, index) => (
-        <div key={track.id} style={{ marginBottom: "30px" }}>
+      {tracks.map((track) => (
+        <div key={track.id} style={{ marginBottom: "30px" }} className="float-wrapper">
           <iframe
             src={`https://open.spotify.com/embed/track/${track.id}`}
             width="100%"
@@ -38,7 +38,7 @@ function Happy() {
             className="download-btn"
             onClick={() => generateMusicCard(track.name)}
           >
-            Download Card
+            <span>Flex This Track  <i class="fa-solid fa-download"></i> </span>
           </button>
         </div>
       ))}

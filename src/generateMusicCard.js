@@ -2,7 +2,9 @@ import html2canvas from "html2canvas";
 
 export async function generateMusicCard(trackName) {
   const res = await fetch(
-    `https://itunes.apple.com/search?term=${encodeURIComponent(trackName)}&entity=song&limit=1`
+    `https://itunes.apple.com/search?term=${encodeURIComponent(
+      trackName
+    )}&entity=song&limit=1`
   );
   const data = await res.json();
   const track = data.results[0];
@@ -11,6 +13,9 @@ export async function generateMusicCard(trackName) {
     alert("No song found!");
     return;
   }
+
+  // Upgrade image URL to 600x600
+  const artworkUrl = track.artworkUrl100.replace(/\/\d+x\d+bb\.jpg$/, "/600x600bb.jpg");
 
   const card = document.createElement("div");
   card.style.width = "360px";
@@ -22,11 +27,12 @@ export async function generateMusicCard(trackName) {
   card.style.flexDirection = "column";
   card.style.alignItems = "center";
   card.style.gap = "16px";
-  card.style.boxShadow = "0 0 30px #ff00ff80, 0 0 50px #00ffff60, 0 0 80px #ff009960";
+  card.style.boxShadow =
+    "0 0 30px #ff00ff80, 0 0 50px #00ffff60, 0 0 80px #ff009960";
 
   const img = document.createElement("img");
   img.crossOrigin = "anonymous";
-  img.src = track.artworkUrl100;
+  img.src = artworkUrl;
   img.style.width = "180px";
   img.style.height = "180px";
   img.style.borderRadius = "16px";
@@ -43,9 +49,10 @@ export async function generateMusicCard(trackName) {
   title.innerText = track.trackName;
   title.style.margin = "0";
   title.style.fontSize = "22px";
-  title.style.background = "linear-gradient(90deg, #00ffe0, #ff00ff)";
+  title.style.background = "linear-gradient(90deg, #ff0000, #ffd700)";
   title.style.webkitBackgroundClip = "text";
   title.style.webkitTextFillColor = "transparent";
+  title.style.fontWeight = "bold";
 
   const artist = document.createElement("p");
   artist.innerText = `by ${track.artistName} 🔥`;
@@ -53,17 +60,14 @@ export async function generateMusicCard(trackName) {
   artist.style.fontSize = "14px";
   artist.style.opacity = "0.85";
 
- const nva = document.createElement("h3");
-nva.innerText = `on NOVARA`;
-nva.style.margin = "0";
-nva.style.fontSize = "14px";
-nva.style.opacity = "1";
-nva.style.textDecoration = "underline";
-nva.style.color = "#00ffee"; // Neon teal-blue, feel free to change
-nva.style.color = "#fff";
-nva.style.textShadow = "0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff";
-nva.style.textDecoration = "underline";
-
+  const nva = document.createElement("h3");
+  nva.innerText = `on NOVARA`;
+  nva.style.margin = "0";
+  nva.style.fontSize = "14px";
+  nva.style.opacity = "1";
+  nva.style.textDecoration = "underline wavy white";
+  nva.style.color = "#00ffee"; // Final value, not overwritten now
+  nva.style.textShadow = "0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff";
 
   const footer = document.createElement("p");
   footer.innerText = "🌐 novara-music.vercel.app";
@@ -71,15 +75,21 @@ nva.style.textDecoration = "underline";
   footer.style.opacity = "0.8";
   footer.style.marginTop = "12px";
 
-  // Append order
+  const mn = document.createElement("p");
+  mn.innerText = "© NOVARA";
+  mn.style.fontSize = "12px";
+  mn.style.opacity = "0.8";
+  mn.style.marginTop = "4px";
+
+  // Append all
   card.appendChild(img);
   card.appendChild(vibe);
   card.appendChild(title);
   card.appendChild(artist);
   card.appendChild(nva);
   card.appendChild(footer);
+  card.appendChild(mn);
 
-  // Wait before capturing
   img.onload = () => {
     document.body.appendChild(card);
     requestAnimationFrame(() => {
@@ -89,7 +99,7 @@ nva.style.textDecoration = "underline";
         });
 
         const link = document.createElement("a");
-        link.download = `${track.trackName}.png`;
+        link.download = `Novara Song Card.png`;
         link.href = canvas.toDataURL("image/png");
         link.click();
 
