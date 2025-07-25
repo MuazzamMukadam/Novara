@@ -15,37 +15,48 @@ let artworkUrl;
 const fallbackTracks = [
   {
     name: "the night we met",
-    id: "5yJaXWIErrrsjQ3J0eR5aK"
+    id: "5yJaXWIErrrsjQ3J0eR5aK",
+    artist:"lord huron"
   },
   {
     name: "back to friends",
-    id: "0FTmksd2dxiE5e3rWyJXs6"
+    id: "0FTmksd2dxiE5e3rWyJXs6",
+    artist:"sombr"
   },
   {
     name: "die with a smile",
-    id: "2plbrEY59IikOBgBGLjaoe"
+    id: "2plbrEY59IikOBgBGLjaoe",
+    artist:"bruno mars"
   }
 ];
 
-for (const fallback of fallbackTracks) {
-  if (track.trackName.toLowerCase().includes(fallback.name)) {
-    try {
-      const res = await fetch(
-        `https://open.spotify.com/oembed?url=https://open.spotify.com/track/${fallback.id}`
-      );
-      const data = await res.json();
-      console.log("Spotify thumbnail URL:", data.thumbnail_url);
-
-      if (data.thumbnail_url) {
-        artworkUrl = data.thumbnail_url.replace("ab67616d00001e02", "ab67616d0000b273");
-      }
-    } catch (e) {
-      console.warn(`Failed to fetch Spotify image for ${fallback.name}`, e);
-    }
-    break; // Stop loop after match
-  }
+function normalize(str) {
+  return str?.toLowerCase().trim().replace(/\s+/g, " ") || "";
 }
 
+for (const fallback of fallbackTracks) {
+  if (
+    normalize(track.trackName).includes(fallback.name) &&
+    normalize(track.artistName).includes(fallback.artist)
+  ) {
+    try {
+      const res = await fetch(
+        `https://open.spotify.com/oembed?url=https://open.spotify.com/track/${fallback.spotifyId}`
+      );
+      const spotifyData = await res.json();
+
+      if (spotifyData.thumbnail_url) {
+        artworkUrl = spotifyData.thumbnail_url.replace(
+          "ab67616d00001e02",
+          "ab67616d0000b273"
+        ); // upgrade to better res
+      }
+    } catch (e) {
+      console.warn("Spotify fetch failed for fallback:", e);
+    }
+    break; // stop after first match
+  }
+}
 
 // Fallback to iTunes if not assigned
 if (!artworkUrl) {
