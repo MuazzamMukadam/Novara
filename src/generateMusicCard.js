@@ -1,69 +1,14 @@
 import html2canvas from "html2canvas";
 
-export async function generateMusicCard(trackName) {
-  const res = await fetch(
-    `https://itunes.apple.com/search?term=${encodeURIComponent(trackName)}&entity=song&limit=1`
-  );
+export async function generateMusicCard(trackId) {
+  // 🔄 Fetch track details using oEmbed (no token needed)
+  const res = await fetch(`https://open.spotify.com/oembed?url=https://open.spotify.com/track/${trackId}`);
   const data = await res.json();
-  const track = data.results[0];
+  const trackName = data.title;
+  const trackArtist = data.author_name;
+  const thumbnail = data.thumbnail_url;
 
-  if (!track) {
-    alert("No song found!");
-    return;
-  }
-let artworkUrl;
-const fallbackTracks = [
-  {
-    name: "the night we met",
-    id: "5yJaXWIErrrsjQ3J0eR5aK",
-    artist:"lord huron"
-  },
-  {
-    name: "back to friends",
-    id: "0FTmksd2dxiE5e3rWyJXs6",
-    artist:"sombr"
-  },
-  {
-    name: "die with a smile",
-    id: "2plbrEY59IikOBgBGLjaoe",
-    artist:"bruno mars"
-  }
-];
-
-function normalize(str) {
-  return str?.toLowerCase().trim().replace(/\s+/g, " ") || "";
-}
-
-for (const fallback of fallbackTracks) {
-  if (
-    normalize(track.trackName).includes(fallback.name) &&
-    normalize(track.artistName).includes(fallback.artist)
-  ) {
-    try {
-      const res = await fetch(
-        `https://open.spotify.com/oembed?url=https://open.spotify.com/track/${fallback.spotifyId}`
-      );
-      const spotifyData = await res.json();
-
-      if (spotifyData.thumbnail_url) {
-        artworkUrl = spotifyData.thumbnail_url.replace(
-          "ab67616d00001e02",
-          "ab67616d0000b273"
-        ); // upgrade to better res
-      }
-    } catch (e) {
-      console.warn("Spotify fetch failed for fallback:", e);
-    }
-    break; // stop after first match
-  }
-}
-
-// Fallback to iTunes if not assigned
-if (!artworkUrl) {
-  artworkUrl = track.artworkUrl100.replace(/\/\d+x\d+bb\.jpg$/, "/600x600bb.jpg");
-}
-
-  // UI Creation
+  // 🎨 UI Creation
   const card = document.createElement("div");
   card.style.width = "360px";
   card.style.padding = "24px";
@@ -84,7 +29,7 @@ if (!artworkUrl) {
 
   const img = document.createElement("img");
   img.crossOrigin = "anonymous";
-  img.src = artworkUrl;
+  img.src = thumbnail;
   img.style.width = "180px";
   img.style.height = "180px";
   img.style.borderRadius = "16px";
@@ -98,7 +43,7 @@ if (!artworkUrl) {
   vibe.style.opacity = "0.9";
 
   const title = document.createElement("h2");
-  title.innerText = track.trackName;
+  title.innerText = trackName;
   title.style.margin = "0";
   title.style.borderRadius = "12px";
   title.style.padding = "4px 8px";
@@ -110,7 +55,7 @@ if (!artworkUrl) {
   title.style.fontWeight = "bold";
 
   const artist = document.createElement("p");
-  artist.innerText = `by ${track.artistName} 🔥`;
+  artist.innerText = `by ${trackArtist}🔥`;
   artist.style.margin = "0";
   artist.style.fontSize = "14px";
   artist.style.opacity = "0.85";
@@ -136,7 +81,7 @@ if (!artworkUrl) {
   mn.style.opacity = "0.8";
   mn.style.marginTop = "4px";
 
-  // Add to card
+  // 🧱 Build Card
   card.appendChild(img);
   card.appendChild(vibe);
   card.appendChild(title);
