@@ -4,40 +4,40 @@ import { generateMusicCard } from "../generateMusicCard"; // make sure path is c
 const tracks = [
   {
     id: "2pUpNOgJBIBCcjyQZQ00qU",
-    name: "Shape of You",
+    name: "Let Her go passenger",
   },
   {
     id: "7bPWdJgx8vek7S5i5yAtvG",
-    name: "Mood",
+    name: "Chemtrails over the country club",
   },
   {
     id: "6GGtHZgBycCgGBUhZo81xe",
-    name: "Blinding Lights",
+    name: "say yes to heaven",
   },
   {
     id: "7qEHsqek33rTcFNT9PFqLf",
-    name: "Never Gonna Give You Up rick astley",
+    name: "someone you loved",
   },
   {
     id: "3JvKfv6T31zO0ini8iNItO",
-    name: "Never Gonna Give You Up rick astley",
+    name: "another love",
   },
   {
     id: "3QaPy1KgI7nu9FJEQUgn6h",
-    name: "Never Gonna Give You Up rick astley",
+    name: "wildflower billie eilish",
   },
   {
     id: "0FTmksd2dxiE5e3rWyJXs6",
-    name: "Never Gonna Give You Up rick astley",
+    name: "back to friends sombr",
   },
   {
     id: "5yJaXWIErrrsjQ3J0eR5aK",
-    name: "Never Gonna Give You Up rick astley",
+    name: "the night we met",
   },
   {
     id: "2plbrEY59IikOBgBGLjaoe",
-    name: "Never Gonna Give You Up rick astley",
-  },
+    name: "die with a smile bruno mars",
+  }
 ];
 
 function Sad() {

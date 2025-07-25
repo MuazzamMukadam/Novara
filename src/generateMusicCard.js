@@ -2,9 +2,7 @@ import html2canvas from "html2canvas";
 
 export async function generateMusicCard(trackName) {
   const res = await fetch(
-    `https://itunes.apple.com/search?term=${encodeURIComponent(
-      trackName
-    )}&entity=song&limit=1`
+    `https://itunes.apple.com/search?term=${encodeURIComponent(trackName)}&entity=song&limit=1`
   );
   const data = await res.json();
   const track = data.results[0];
@@ -13,22 +11,65 @@ export async function generateMusicCard(trackName) {
     alert("No song found!");
     return;
   }
+let artworkUrl;
+const fallbackTracks = [
+  {
+    name: "the night we met",
+    id: "5yJaXWIErrrsjQ3J0eR5aK"
+  },
+  {
+    name: "back to friends",
+    id: "0FTmksd2dxiE5e3rWyJXs6"
+  },
+  {
+    name: "die with a smile",
+    id: "2plbrEY59IikOBgBGLjaoe"
+  }
+];
 
-  // Upgrade image URL to 600x600
-  const artworkUrl = track.artworkUrl100.replace(/\/\d+x\d+bb\.jpg$/, "/600x600bb.jpg");
+for (const fallback of fallbackTracks) {
+  if (track.trackName.toLowerCase().includes(fallback.name)) {
+    try {
+      const res = await fetch(
+        `https://open.spotify.com/oembed?url=https://open.spotify.com/track/${fallback.id}`
+      );
+      const data = await res.json();
+      console.log("Spotify thumbnail URL:", data.thumbnail_url);
 
+      if (data.thumbnail_url) {
+        artworkUrl = data.thumbnail_url.replace("ab67616d00001e02", "ab67616d0000b273");
+      }
+    } catch (e) {
+      console.warn(`Failed to fetch Spotify image for ${fallback.name}`, e);
+    }
+    break; // Stop loop after match
+  }
+}
+
+
+// Fallback to iTunes if not assigned
+if (!artworkUrl) {
+  artworkUrl = track.artworkUrl100.replace(/\/\d+x\d+bb\.jpg$/, "/600x600bb.jpg");
+}
+
+  // UI Creation
   const card = document.createElement("div");
   card.style.width = "360px";
   card.style.padding = "24px";
   card.style.fontFamily = "'Poppins', sans-serif";
   card.style.color = "white";
-  card.style.background = "linear-gradient(135deg, #1f0036, #3f0071, #ff0099)";
+
+  const gradients = [
+    "linear-gradient(135deg, #1f0036, #3f0071, #ff0099)",
+    "linear-gradient(135deg, #ff5252ff, #0079e2ff)",
+    "linear-gradient(135deg, #8e2de2, #4a00e0, #ffd700)"
+  ];
+  card.style.background = gradients[Math.floor(Math.random() * gradients.length)];
   card.style.display = "flex";
   card.style.flexDirection = "column";
   card.style.alignItems = "center";
   card.style.gap = "16px";
-  card.style.boxShadow =
-    "0 0 30px #ff00ff80, 0 0 50px #00ffff60, 0 0 80px #ff009960";
+  card.style.boxShadow = "0 0 30px #ff00ff80, 0 0 50px #00ffff60, 0 0 80px #ff009960";
 
   const img = document.createElement("img");
   img.crossOrigin = "anonymous";
@@ -48,6 +89,9 @@ export async function generateMusicCard(trackName) {
   const title = document.createElement("h2");
   title.innerText = track.trackName;
   title.style.margin = "0";
+  title.style.borderRadius = "12px";
+  title.style.padding = "4px 8px";
+  title.style.display = "inline-block";
   title.style.fontSize = "22px";
   title.style.background = "linear-gradient(90deg, #ff0000, #ffd700)";
   title.style.webkitBackgroundClip = "text";
@@ -66,7 +110,7 @@ export async function generateMusicCard(trackName) {
   nva.style.fontSize = "14px";
   nva.style.opacity = "1";
   nva.style.textDecoration = "underline wavy white";
-  nva.style.color = "#00ffee"; // Final value, not overwritten now
+  nva.style.color = "#00ffee";
   nva.style.textShadow = "0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff";
 
   const footer = document.createElement("p");
@@ -81,7 +125,7 @@ export async function generateMusicCard(trackName) {
   mn.style.opacity = "0.8";
   mn.style.marginTop = "4px";
 
-  // Append all
+  // Add to card
   card.appendChild(img);
   card.appendChild(vibe);
   card.appendChild(title);
@@ -95,7 +139,7 @@ export async function generateMusicCard(trackName) {
     requestAnimationFrame(() => {
       requestAnimationFrame(async () => {
         const canvas = await html2canvas(card, {
-          useCORS: true,
+          useCORS: true
         });
 
         const link = document.createElement("a");
@@ -109,6 +153,6 @@ export async function generateMusicCard(trackName) {
   };
 
   img.onerror = () => {
-    alert("Failed to load album cover due to CORS.");
+    alert("Failed to load album cover.");
   };
 }
