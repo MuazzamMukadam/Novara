@@ -1,4 +1,4 @@
-.mg {
+/*.mg {
   width: 100%;
   max-width: 200px;
   height: auto; /* Maintains aspect ratio */
@@ -11,7 +11,7 @@
 .mg:hover {
   transform: scale(1.1);
   opacity: 0.9;
-}
+}*/
 .gif-container {
   position: relative;
   display: inline-block;
@@ -23,7 +23,7 @@
 .gif-container:focus {
   outline: none;
   box-shadow: none;
-}
+}/*
 .mg {
   width: 200px;
   height: auto;
@@ -34,7 +34,7 @@
 .mg:focus {
   outline: none;
   box-shadow: none;
-}
+}*/
 /* Music note animation */
 .music-icon {
   position: absolute;
@@ -59,4 +59,44 @@
 .music-icon:focus {
   outline: none;
   box-shadow: none;
+}
+.music-wave {
+  display: flex;
+  align-items: end;
+  gap: 5px;
+  height: 60px;
+  width: 100px;
+}
+
+.music-wave span {
+  flex: 1;
+  height: 100%;
+  background: linear-gradient(180deg, #ff00cc, #3333ff);
+  animation: wave 1.2s infinite ease-in-out;
+  border-radius: 10px;
+}
+
+.music-wave span:nth-child(1) {
+  animation-delay: 0s;
+}
+.music-wave span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.music-wave span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.music-wave span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.music-wave span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes wave {
+  0%, 100% {
+    height: 20%;
+  }
+  50% {
+    height: 100%;
+  }
 }
