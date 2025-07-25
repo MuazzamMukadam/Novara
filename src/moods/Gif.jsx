@@ -13,7 +13,7 @@ function Gif() {
 
   return (
     <div className="gif-container" onClick={handleClick}>
-<div class="music-wave">
+<div className="music-wave">
   <span></span>
   <span></span>
   <span></span>
