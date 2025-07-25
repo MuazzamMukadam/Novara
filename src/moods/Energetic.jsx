@@ -1,12 +1,12 @@
-import './Energetic.css';
+import "./Energetic.css";
 
-const trackIds = [
-  "0FIDCNYYjNvPVimz5icugS"
-];
+const trackIds = ["0FIDCNYYjNvPVimz5icugS"];
 
 function Energetic() {
   return (
     <>
+      <h2 className="song-count">Total Energetic Songs: {trackIds.length}</h2>
+
       {trackIds.map((id, index) => (
         <iframe
           key={index}

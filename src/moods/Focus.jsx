@@ -1,14 +1,12 @@
+import "./Focus.css";
 
-import './Focus.css';
-
-const trackIds = [
-"6pWgRkpqVfxnj3WuIcJ7WP",
-"6ZFbXIJkuI1dVNWvzJzown"
-];
+const trackIds = ["6pWgRkpqVfxnj3WuIcJ7WP", "6ZFbXIJkuI1dVNWvzJzown"];
 
 function Focus() {
   return (
     <>
+      <h2 className="song-count">Total Focus Songs: {trackIds.length}</h2>
+
       {trackIds.map((id, index) => (
         <iframe
           key={index}

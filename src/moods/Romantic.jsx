@@ -13,6 +13,7 @@ const trackIds = [
 function Romantic() {
   return (
     <>    <div className="romantic-bg">
+      <h2 className="song-count">Total Romantic Songs: {trackIds.length}</h2>
 
       {trackIds.map((id, index) => (
         <iframe
