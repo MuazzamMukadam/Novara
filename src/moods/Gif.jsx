@@ -13,7 +13,14 @@ function Gif() {
 
   return (
     <div className="gif-container" onClick={handleClick}>
-      <img src="/mpg.gif" className="mg" alt="music gif" />
+     /* <img src="/mpg.gif" className="mg" alt="music gif" />*/
+<div class="music-wave">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
       {showIcon && (
         <div className="music-icon">🎹🎧</div>
       )}
