@@ -55,7 +55,7 @@ export async function generateMusicCard(trackId) {
   title.style.fontWeight = "bold";
 
   const artist = document.createElement("p");
-  artist.innerText = `by ${trackArtist}🔥`;
+  artist.innerText = `by ${data}🔥`;
   artist.style.margin = "0";
   artist.style.fontSize = "14px";
   artist.style.opacity = "0.85";
