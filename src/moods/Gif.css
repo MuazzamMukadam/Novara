@@ -1,18 +1,4 @@
-/*.mg {
-  width: 100%;
-  max-width: 200px;
-  height: auto; 
-  display: block;
-  margin: 20px auto;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  z-index: 999;
-}
 
-.mg:hover {
-  transform: scale(1.1);
-  opacity: 0.9;
-}
-*/
 .gif-container {
   position: relative;
   display: inline-block;
@@ -20,23 +6,14 @@
   user-select: none; /* Prevents text/icon selection */
   -webkit-tap-highlight-color: transparent; /* Removes blue highlight on mobile */
   outline: none;
+  margin-top: 100px;
+
 }
 .gif-container:focus {
   outline: none;
   box-shadow: none;
-}/*
-.mg {
-  width: 200px;
-  height: auto;
-  user-drag: none;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-.mg:focus {
-  outline: none;
-  box-shadow: none;
-}*/
-/* Music note animation */
+} 
+
 .music-icon {
   position: absolute;
   bottom: 10px;
@@ -65,8 +42,8 @@
   display: flex;
   align-items: end;
   gap: 5px;
-  height: auto;
-width:200px;
+  height: 100px;
+  width: 200px;
 }
 
 .music-wave span {
@@ -74,7 +51,7 @@ width:200px;
   height: 100%;
   background: linear-gradient(180deg, #ff00cc, #3333ff);
   animation: wave 1.2s infinite ease-in-out;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .music-wave span:nth-child(1) {
