@@ -36,7 +36,7 @@ function Happy() {
           ></iframe>
           <button
             className="download-btn"
-            onClick={() => generateMusicCard(track.name)}
+            onClick={() => generateMusicCard(track.id)}
           >
             <span>Flex This Track  <i class="fa-solid fa-download"></i> </span>
           </button>
